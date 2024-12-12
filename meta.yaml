@@ -74,7 +74,7 @@ test:
 
 about:
   home: https://osdag.fossee.in
-  summary: 'Simple, fast, extensible JSON encoder/decoder for Python'
+  summary: 'Open steel design and graphics'
   description: |
     Open steel design and graphics
   # Remember to specify the license variants for BSD, Apache, GPL, and LGPL.
