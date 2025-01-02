@@ -7,7 +7,7 @@
 # when copying and pasting from another recipe, but not really needed.
 {% set name = "Osdag" %}
 {% set branch = "run-develop-with-latest-conda" %}
-{% set version = "2024.12.a" %}
+{% set version = "2025.01.a.0" %}
 
 package:
   name: {{ name|lower }}
