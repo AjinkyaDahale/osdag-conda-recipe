@@ -42,21 +42,22 @@ requirements:
   build:
     # If your project compiles code (such as a C extension) then add the required compilers as separate entries here.
     # Compilers are named 'c', 'cxx' and 'fortran'.
-    - python>=3.10
-    - setuptools
+    - conda-forge::python>=3.10
+    - conda-forge::setuptools
   run:
-    - python>=3.10
-    - numpy
-    - openpyxl
-    - pandas
-    - pynput
-    - pyqt
-    - pythonocc-core
-    - pylatex
-    - pygithub
-    - pyyaml
-    - smesh
-    - tbb
+    - conda-forge::python>=3.10
+    - conda-forge::numpy
+    - conda-forge::openpyxl
+    - conda-forge::pandas
+    - conda-forge::pynput
+    - conda-forge::pyqt
+    - conda-forge::pythonocc-core
+    - conda-forge::pylatex
+    - conda-forge::pygithub
+    - conda-forge::pyyaml
+    - conda-forge::sqlite
+    - conda-forge::smesh
+    - conda-forge::tbb
 
 test:
   # Some packages might need a `test/commands` key to check CLI.
