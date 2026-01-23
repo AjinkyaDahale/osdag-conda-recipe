@@ -6,18 +6,18 @@
 # Using the name variable with the URL in line 16 is convenient
 # when copying and pasting from another recipe, but not really needed.
 {% set name = "Osdag" %}
-{% set branch = "run-develop-with-latest-conda" %}
-{% set version = "2024.donotusethisisjustexperiment" %}
+{% set branch = "dev" %}
+{% set version = "2026.donotusethisisjustexperiment" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  # url: https://github.com/AjinkyaDahale/{{ name }}/archive/refs/heads/{{ branch }}.zip
-  git_url: https://github.com/AjinkyaDahale/Osdag.git
+  # url: https://github.com/osdag-admin/{{ name }}/archive/refs/heads/{{ branch }}.zip
+  git_url: https://github.com/osdag-admin/Osdag.git
   git_rev: {{ branch }}
-  # sha256: 2b3a0c466fb4a1014ea131c2b8ea7c519f9278eba73d6fcb361b7bdb4fd494e9
+  # sha256: ???
   # sha256 is the preferred checksum -- you can get it for a file with:
   #  `openssl sha256 <file name>`.
   # You may need the openssl package, available on conda-forge:
@@ -32,31 +32,31 @@ build:
   # If the installation is complex, or different between Unix and Windows, use separate bld.bat and build.sh files instead of this key.
   # By default, the package will be built for the Python versions supported by conda-forge and for all major OSs.
   # Add the line "skip: True  # [py<35]" (for example) to limit to Python 3.5 and newer, or "skip: True  # [not win]" to limit to Windows.
-  # More info about selectors can be found in the conda-build docs: 
+  # More info about selectors can be found in the conda-build docs:
   # https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#preprocessing-selectors
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed . -vv
   entry_points:
-    - osdag = osdag.osdagMainPage:do_stuff
+    - osdag = osdag_gui.__main__:main
 
 requirements:
   build:
     # If your project compiles code (such as a C extension) then add the required compilers as separate entries here.
     # Compilers are named 'c', 'cxx' and 'fortran'.
-    - python>=3.10
-    - setuptools
+    - conda-forge::python>=3.10
+    - conda-forge::setuptools
   run:
-    - python>=3.10
-    - numpy
-    - openpyxl
-    - pandas
-    - pynput
-    - pyqt
-    - pythonocc-core
-    - pylatex
-    - pygithub
-    - pyyaml
-    - smesh
-    - tbb
+    - conda-forge::python>=3.10
+    - conda-forge::numpy
+    - conda-forge::openpyxl
+    - conda-forge::pandas
+    - conda-forge::pynput
+    - conda-forge::pyside6
+    - conda-forge::pythonocc-core
+    - conda-forge::pylatex
+    - conda-forge::pygithub
+    - conda-forge::pyyaml
+    - conda-forge::smesh
+    - conda-forge::tbb
 
 test:
   # Some packages might need a `test/commands` key to check CLI.
@@ -81,7 +81,7 @@ about:
   # Use the SPDX identifier, e.g: GPL-2.0-only instead of GNU General Public License version 2.0
   # See https://spdx.org/licenses/
   license: LGPL-3.0-only
-  # The license_family, i.e. "BSD" if license is "BSD-3-Clause". 
+  # The license_family, i.e. "BSD" if license is "BSD-3-Clause".
   # Optional
   license_family: LGPL
   # It is required to include a license file in the package,
